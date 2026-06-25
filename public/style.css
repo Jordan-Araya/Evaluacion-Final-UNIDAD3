@@ -1,0 +1,16 @@
+.input-error {
+    border: 2px solid red !important;
+}
+
+.error-texto {
+    color: red;
+    display: block;
+    font-size: 13px;
+    margin-top: 4px;
+    font-weight: bold;
+}
+
+.input-activo {
+    border: 2px solid blue !important;
+    outline: none;
+}

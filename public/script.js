@@ -19,6 +19,11 @@ formulario.addEventListener('submit', function(evento) {
         inputs[i].classList.remove('input-error', 'input-activo');
     }
 
+    const valorNombre = nombre.value.trim();
+    const valorEmail = email.value.trim();
+    const valorAsunto = asunto.value.trim();
+    const valorMensaje = mensaje.value.trim();
+
     function mostrarError(inputElemento, texto) {
         hayErrores = true;
 
@@ -31,31 +36,31 @@ formulario.addEventListener('submit', function(evento) {
         inputElemento.parentNode.appendChild(span);
     }
 
-    if(nombre.value.trim() != '') mostrarError(nombre, 'Este campo no puede estar vacio');
-    if(email.value.trim() != '') mostrarError(email, 'Este campo no puede estar vacio');
-    if(asunto.value.trim() != '') mostrarError(asunto, 'Este campo no puede estar vacio');
-    if(mensaje.value.trim() != '') mostrarError(mensaje, 'Este campo no puede estar vacio');
+    if(valorNombre == '') mostrarError(nombre, 'Este campo no puede estar vacio');
+    if(valorEmail == '') mostrarError(email, 'Este campo no puede estar vacio');
+    if(valorAsunto == '') mostrarError(asunto, 'Este campo no puede estar vacio');
+    if(valorMensaje == '') mostrarError(mensaje, 'Este campo no puede estar vacio');
 
-    if(email.value.trim() != '') {
-        if(email.value.includes('@') == false || email.value.includes('.') == false) {
+    if(valorEmail !== '') {
+        if(valorEmail.includes('@') == false || valorEmail.includes('.') == false) {
             mostrarError(email, 'Formato invalido, falta @ y el .');
         }
     }
 
-    if(asunto.value.trim() != '' && nombre.value.trim() != ''){
-        if(asunto.value.toLowerCase() == nombre.value.toLowerCase()) {
+    if(valorAsunto !== '' && valorNombre !== ''){
+        if(valorAsunto == valorNombre.toLowerCase()) {
             mostrarError(asunto, 'El asunto no puede ser igual al nombre');
         }
     }
 
-    if(mensaje.value.trim() != '') {
-        if(mensaje.value.length < 18) {
+    if(valorMensaje !== '') {
+        if(valorMensaje < 18) {
             mostrarError(mensaje, 'Minimo 18 caracteres');
         }
     }
 
-    if(asunto.value.trim() != ''){
-        if(asunto.value.toLowerCase().includes('prueba')) {
+    if(valorAsunto !== ''){
+        if(valorAsunto.toLowerCase().includes('prueba')) {
             mostrarError(asunto, 'No puedes usar o mencionar la palabra prueba');
         }
     }
