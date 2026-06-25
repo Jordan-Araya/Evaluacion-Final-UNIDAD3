@@ -54,7 +54,7 @@ formulario.addEventListener('submit', function(evento) {
     }
 
     if(valorMensaje !== '') {
-        if(valorMensaje < 18) {
+        if(valorMensaje.length < 18) {
             mostrarError(mensaje, 'Minimo 18 caracteres');
         }
     }
