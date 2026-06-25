@@ -1,19 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Registro de mascota</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    
-    <div>
-        <h1> Bienvenido</h2>
-            <p> </p>
-    </div>
 
+<body>
+    <main class="contenedor">
+        <div>
+            <h1> Bienvenido a nuestro Registro </h2>
+                <p> Por favor, rellena el formulario con tus datos </p>
+        </div>
+
+        <div>
+            <form id="formularioRegistro" action="/guardar" method="post">
+
+                <div class="campo">
+                    <label for="nombre"> Nombre </label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ejemplo: Juan" required>
+                    <span class="error" id="errorNombre"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="email"> Correo electronico </label>
+                    <input type="email" id="email" name="email" placeholder="ej: algo@algo.com" required>
+                    <span class="error" id="errorEmail"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="asunto"> Asunto </label>
+                    <input type="text" id="asunto" name="asunto" placeholder="Motivo de tu mensaje" required>
+                    <span class="error" id="errorAsunto"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="mensaje"> Mensaje </label>
+                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe aqui una breve descripcion..."
+                        required></textarea>
+                    <span class="error" id="errorMensaje"></span>
+                </div>
+
+                <button type="submit" id="btnEnviar"> Guardar Registro </button>
+            </form>
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
+
 </html>
